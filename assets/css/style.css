@@ -9,13 +9,19 @@ body {
 
 }
 
-.box {
+::selection {
+    background: black;
+    color:rgb(10, 137, 248);
+
+}
+
+.main-box {
     /* background-image: url(../images/original.jpg); */
     background-size: 100%;
     margin: 20px;
     height: 100%;
     background-color: rgb(10, 137, 248);
-    padding-bottom: 30px;
+    padding-bottom: 40px;
 
 
 }
@@ -33,13 +39,21 @@ h1 {
 #question {
     margin: 20px;
     font-size: 120%;
+    font-weight: bold;
 
 }
 
 .answer {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 50%;
     display: inline-block;
 
 
+}
+
+.answer:hover {
+    background-color: black;
+    color: rgb(10, 137, 248);
+
+    
 }
