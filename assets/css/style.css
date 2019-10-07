@@ -11,23 +11,24 @@ body {
 
 ::selection {
     background: black;
-    color:rgb(10, 137, 248);
+    color:orange;
 
 }
 
 .main-box {
-    /* background-image: url(../images/original.jpg); */
+    /* background-image: url(../images/creampaper.png); */
     background-size: 100%;
     margin: 20px;
     height: 100%;
-    background-color: rgb(10, 137, 248);
+    background-color: orange;
     padding-bottom: 40px;
+    border-radius: 5px;
 
 
 }
 
 h1 {
-    padding: 20px;
+    padding: 40px;
     font-weight: bold;
     font-size: 200%;
     margin: 20px;
@@ -47,13 +48,14 @@ h1 {
     /* border: 1px solid black; */
     width: 50%;
     display: inline-block;
-
+    border-radius: 5px;
 
 }
 
 .answer:hover {
     background-color: black;
-    color: rgb(10, 137, 248);
-
+    color: orange;
+    text-shadow: 1px 1px 1px white;
+    cursor: pointer;
     
 }
