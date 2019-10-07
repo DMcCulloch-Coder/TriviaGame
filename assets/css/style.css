@@ -1,0 +1,45 @@
+body {
+    background-image: url(../images/dark-honeycomb.png);
+    text-align: center;
+    color: white;
+    font-family: 'Architects Daughter', cursive;
+    text-shadow: 2px 2px 2px black;
+    font-size: 150%;
+
+
+}
+
+.box {
+    /* background-image: url(../images/original.jpg); */
+    background-size: 100%;
+    margin: 20px;
+    height: 100%;
+    background-color: rgb(10, 137, 248);
+    padding-bottom: 30px;
+
+
+}
+
+h1 {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 200%;
+    margin: 20px;
+    font-family: 'Rock Salt', cursive;
+    line-height: 1.5;
+
+}
+
+#question {
+    margin: 20px;
+    font-size: 120%;
+
+}
+
+.answer {
+    border: 1px solid black;
+    width: 50%;
+    display: inline-block;
+
+
+}
