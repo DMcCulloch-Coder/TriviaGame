@@ -28,15 +28,29 @@ $(document).ready(function() {
     
     
 
-
-
+    let i = 30;
 
     //set functions
-
+    function timeWaster () {
+        i--
+        $('#time-clock').text(i)
+        if (i > 0) {
+            setTimeout(timeWaster,1000)
+        }
+    }
+    
     function questionTimer() {
-        let countDown = setTimeout(function () {
-            alert('ran out of time!')
-        }, 2000)
+        
+        $('#time-clock').text(i)
+  
+        let countDown = setInterval(function () {
+            
+        }, 30000)
+
+        $('#time-clock').text(i)
+
+        timeWaster();
+
         $('.question-box').on('click', function() {
             console.log('working');
             clearTimeout(countDown);
