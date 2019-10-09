@@ -5,6 +5,7 @@ body {
     font-family: 'Architects Daughter', cursive;
     text-shadow: 2px 2px 2px black;
     font-size: 150%;
+    cursor: default;
 
 
 }
@@ -16,7 +17,6 @@ body {
 }
 
 .main-box {
-    /* background-image: url(../images/creampaper.png); */
     background-size: 100%;
     margin: 20px;
     height: 100%;

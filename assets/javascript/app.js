@@ -1,6 +1,7 @@
 // To Do:
 // ending screen "title / ending statment / correct, incorrect, unasnwered / start over button"
 // find a way to suffle the answers (make the answers into an array?  how to find correct if = to correct (copy of right answer!!!))
+// add video clips to the objects!  // also make the c === answer text
 
 $(document).ready(function() {
 
@@ -24,17 +25,24 @@ $(document).ready(function() {
             a1: 'Won-Won', a2: 'Weasel', a3: 'Wheezy', a4: 'Woozy', c: 'a3'},
 
     }
-
+    
+    
 
 
 
 
     //set functions
 
-    function questionTimer () {
-        alert('working') //test
-        //$('#time-clock').text('Time Remaining: ' + )
+    function questionTimer() {
+        let countDown = setTimeout(function () {
+            alert('ran out of time!')
+        }, 2000)
+        $('.question-box').on('click', function() {
+            console.log('working');
+            clearTimeout(countDown);
+        })
     };
+
 
     function displayQuestion () { //setup for loop
         //display time-clock
@@ -51,7 +59,8 @@ $(document).ready(function() {
 
     //start game - call functions
 
-    //questionTimer(); //test
     displayQuestion();
+    questionTimer();
+
 
 });
