@@ -105,3 +105,26 @@ h1 {
     border: 6px solid white;
 
 }
+
+#score-page {
+    display: none;
+
+
+}
+
+#restart {
+    background-color: orange;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    border: 6px solid black;
+    padding: 5px 15px;
+
+}
+
+#restart:hover {
+    background-color: black;
+    color: orange;
+    text-shadow: 1px 1px 1px white;
+    border: 6px solid white;
+
+}
