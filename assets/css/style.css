@@ -46,7 +46,6 @@ h1 {
 }
 
 .answer {
-    /* border: 1px solid black; */
     width: 50%;
     display: inline-block;
     border-radius: 5px;
@@ -63,7 +62,6 @@ h1 {
 
 .question-box {
     display: none;
-
 
 }
 
@@ -83,6 +81,24 @@ h1 {
 }
 
 #start:hover {
+    background-color: black;
+    color: orange;
+    text-shadow: 1px 1px 1px white;
+    border: 6px solid white;
+
+}
+
+#restart {
+    display: none;
+    background-color: orange;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    border: 6px solid black;
+    padding: 5px 15px;
+
+}
+
+#restart:hover {
     background-color: black;
     color: orange;
     text-shadow: 1px 1px 1px white;

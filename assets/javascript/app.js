@@ -26,23 +26,26 @@ $(document).ready(function() {
 
     }
     
-    
-
-    let i = 30;
+    //set time per question and time counter
+    let time = 30;
     let countDown;
+    let correct = 0;
+    let incorrect = 0;
+    let timeOut = 0;
 
     //set functions
     function timeWaster () {
-        i--
-        $('#time-clock').text(i)
-        if (i > 0) {
+        time--
+        $('#time-clock').text(time)
+        if (time > 0) {
             countDown = setTimeout(timeWaster,1000)
         }
+
     }
     
     function questionTimer() {
         
-        $('#time-clock').text(i)
+        $('#time-clock').text(time)
 
         timeWaster();
 
@@ -50,6 +53,7 @@ $(document).ready(function() {
             console.log('working');
             clearTimeout(countDown); //need?
         })
+
     };
 
 
@@ -60,6 +64,7 @@ $(document).ready(function() {
         $('#answer-2').text(quiz[`question-${i}`].a2)
         $('#answer-3').text(quiz[`question-${i}`].a3)
         $('#answer-4').text(quiz[`question-${i}`].a4)
+        
     }
 
     
@@ -70,6 +75,18 @@ $(document).ready(function() {
         $('.question-box').css('display', 'block');
         $('#question').css('display', 'block');
         $('.time').css('display', 'block');
+
+    }
+
+    function restart () {
+        $('#start').css('display', 'block');
+        $('.question-box').css('display', 'none');
+        $('#question').css('display', 'none');
+        $('.time').css('display', 'none');
+        correct = 0;
+        incorrect = 0;
+        timeOut = 0;
+
     }
 
     //start game - call functions
@@ -77,5 +94,7 @@ $(document).ready(function() {
         start(1);
     })
 
-
+    $('#restart').on('click'), function () {
+        restart();
+    }
 });
