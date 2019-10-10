@@ -60,7 +60,7 @@ $(document).ready(function() {
         timeWaster();
 
         $('.question-box').on('click', function(i) {
-            answer = $(this).text();
+            answer = $.trim($(this).text()); //got $.trim from stack overflow!!!  It was driving me crazy
             clearTimeout(countDown);
             checkCorrectness();
             //also need to move to next screen
@@ -69,7 +69,7 @@ $(document).ready(function() {
     };
 
 
-    function displayQuestion () { //setup for loop
+    function displayQuestion () {
         i++
         $('#question').text(quiz[`question-${i}`].q)
         $('#answer-1').text(quiz[`question-${i}`].a1)
@@ -81,7 +81,7 @@ $(document).ready(function() {
 
     function checkCorrectness () { //finish - find if right or wrong, change text for intermediary screen
         
-        if(toString(answer) === quiz[`question-${i}`].c) {
+        if(answer === quiz[`question-${i}`].c) {
             console.log('correct')
         } else {
             console.log(quiz[`question-${i}`].c)
