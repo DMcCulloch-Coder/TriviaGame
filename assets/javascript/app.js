@@ -51,8 +51,8 @@ $(document).ready(function() {
             $('#question-resolution').text('You are Correct!');
             $('#correct-answer').text(`The Correct Answer is:  ${correctAnswer}`);
             //$('#gif-display').html(`<img src='${quiz[question-i].img}' />`); //fix
-            console.log('working')
-            setTimeout(checkEnd, 5000);
+            
+            setTimeout( checkEnd, 5000);
 
         } else if (x === 2) {
             //what happens if they got the answer wrong
@@ -90,16 +90,17 @@ $(document).ready(function() {
     }
 
     function checkEnd () {
+        
         if (i < 8) {
-            displayQuestion();
+            start();
+
         } else {
             //Display final page!--------------------
-            //clear page of score stuff -------------------------------------
-        
-            $('#correct-display').text(`Correct: ${correct}`)
-            $('#incorrect-display').text(`Incorrect: ${incorrect} `)
-            $('#time-out-display').text(`Ran Out of Time: ${timeOut}`)
-            $('#restart').css('display', 'inline-block')
+            $('#score-page').css('display', 'none');
+            $('#correct-display').text(`Correct: ${correct}`);
+            $('#incorrect-display').text(`Incorrect: ${incorrect} `);
+            $('#time-out-display').text(`Ran Out of Time: ${timeOut}`);
+            $('#restart').css('display', 'inline-block');
 
 
         }
@@ -140,7 +141,8 @@ $(document).ready(function() {
         i++
         //render correct answer at this point incase of time out
         correctAnswer = quiz[`question-${i}`].c
-        
+        $('#score-page').css('display', 'none')
+
         $('#question').text(quiz[`question-${i}`].q)
         $('#answer-1').text(quiz[`question-${i}`].a1)
         $('#answer-2').text(quiz[`question-${i}`].a2)
@@ -193,7 +195,7 @@ $(document).ready(function() {
     })
 
     $('#restart').on('click'), function () {
-        console.log('working')
+        console.log('working - reset')
         restart();
         
     }
