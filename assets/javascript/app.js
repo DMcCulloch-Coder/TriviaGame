@@ -1,6 +1,9 @@
 // To Do:
 //
 // bug - fix final page after reset.
+// fix - capitals accross answers and questions
+// fix - margins, so box is same height throughout quiz one different screen sizes
+// write Read me
 
 
 $(document).ready(function() {
@@ -106,6 +109,12 @@ $(document).ready(function() {
         } else {
             //Display final page!--------------------
             $('#score-page').css('display', 'none');
+
+            $('#correct-display').css('display', 'block');
+            $('#incorrect-display').css('display', 'block');
+            $('#time-out-display').css('display', 'block');
+            $('#restart').css('display', 'inline-block');
+
             $('#correct-display').text(`Correct: ${correct}`);
             $('#incorrect-display').text(`Incorrect: ${incorrect} `);
             $('#time-out-display').text(`Ran Out of Time: ${timeOut}`);
@@ -190,7 +199,11 @@ $(document).ready(function() {
     }
 
     function restart () {
-        $('#final-page').css('display', 'none');
+        $('#correct-display').css('display', 'none');
+        $('#incorrect-display').css('display', 'none');
+        $('#time-out-display').css('display', 'none');
+        $('#restart').css('display', 'none');
+
         $('#start').css('display', 'inline-block');
 
         correct = 0;
@@ -206,7 +219,6 @@ $(document).ready(function() {
     })
 
     $('#restart').on('click', function () {
-        console.log('working - reset')
         restart();
         
     })
