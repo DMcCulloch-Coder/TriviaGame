@@ -1,4 +1,7 @@
 // To Do:
+// bug - when you click through, it ramps up through i too fast
+// bug - restart button won't work.
+// bug - gifs aren't being referenced properly
 
 
 $(document).ready(function() {
@@ -33,6 +36,7 @@ $(document).ready(function() {
     let answer;
     let correctAnswer;
     let i = 0;
+    let questionUnclicked = true;
 
     //set functions
     function scoreScreen (x) {
@@ -40,6 +44,7 @@ $(document).ready(function() {
         if (x === 1) {
             //what happens if they got the answer right
             correct++
+        
             //wipe screen
             $('.question-box').css('display', 'none');
             $('#question').css('display', 'none');
@@ -93,7 +98,7 @@ $(document).ready(function() {
         
         if (i < 8) {
             start();
-
+            
         } else {
             //Display final page!--------------------
             $('#score-page').css('display', 'none');
@@ -101,19 +106,18 @@ $(document).ready(function() {
             $('#incorrect-display').text(`Incorrect: ${incorrect} `);
             $('#time-out-display').text(`Ran Out of Time: ${timeOut}`);
             $('#restart').css('display', 'inline-block');
-
-
+            
         }
     }
 
     function timeWaster () {
         time--
-
+        
         $('#time-clock').text(time)
         
         if (time > 0) {
             countDown = setTimeout(timeWaster,1000)
-
+            
         } else {
             scoreScreen(0);
 
@@ -126,11 +130,15 @@ $(document).ready(function() {
         $('#time-clock').text(time)
 
         timeWaster();
-
-        $('.question-box').on('click', function(i) {
-            answer = $.trim($(this).text());
-            clearTimeout(countDown);
-            checkCorrectness();
+        
+        $('.question-box').on('click', function() {
+            if (questionUnclicked){
+                answer = $.trim($(this).text());
+                questionUnclicked = false
+                clearTimeout(countDown);
+                checkCorrectness();//this is happening muiltiple times
+                
+            }
 
         })
 
@@ -139,6 +147,7 @@ $(document).ready(function() {
 
     function displayQuestion () {
         i++
+        
         //render correct answer at this point incase of time out
         correctAnswer = quiz[`question-${i}`].c
         $('#score-page').css('display', 'none')
@@ -166,6 +175,7 @@ $(document).ready(function() {
     
     function start() {
         time = 30;
+        questionUnclicked = true;
         displayQuestion();
         questionTimer();
         $('#start').css('display', 'none');
