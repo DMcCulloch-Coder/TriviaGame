@@ -31,6 +31,7 @@ $(document).ready(function() {
     let incorrect = 0;
     let timeOut = 0;
     let answer;
+    let correctAnswer;
     let i = 0;
 
     //set functions
@@ -45,13 +46,13 @@ $(document).ready(function() {
             $('.time').css('display', 'none');
             
             //put score stuff on screen
-            $('#score-page').css('display, block')
+            $('#score-page').css('display', 'block')
             
             $('#question-resolution').text('You are Correct!');
-            $('#correct-answer').text(`The Correct Answer is: ${quiz}[question-${i}].${c}`);
-            $('#gif-display').html(`<img src='${quiz}[question-${i}].${img}' />`); //check
-
-            setTimeout (checkEnd(), 5000);
+            $('#correct-answer').text(`The Correct Answer is:  ${correctAnswer}`);
+            //$('#gif-display').html(`<img src='${quiz[question-i].img}' />`); //fix
+            console.log('working')
+            setTimeout(checkEnd, 5000);
 
         } else if (x === 2) {
             //what happens if they got the answer wrong
@@ -61,13 +62,13 @@ $(document).ready(function() {
             $('.time').css('display', 'none');
 
             //put score stuff on screen
-            $('#score-page').css('display, block')
+            $('#score-page').css('display', 'block')
             
             $('#question-resolution').text('You are Incorrect!');
-            $('#correct-answer').text(`The Correct Answer is: ${quiz}[question-${i}].${c}`);
-            $('#gif-display').html(`<img src='${quiz}[question-${i}].${img}' />`); //check
+            $('#correct-answer').text(`The Correct Answer is: ${correctAnswer}`);
+            //$('#gif-display').html(`<img src='${quiz}[question-${i}].img' />`); //check
             
-            setTimeout (checkEnd(), 5000);
+            setTimeout (checkEnd, 5000);
 
         } else if (x === 0) {
             //what happens if they ran out of time
@@ -77,20 +78,20 @@ $(document).ready(function() {
             $('.time').css('display', 'none');
 
             //put score stuff on screen
-            $('#score-page').css('display, block')
+            $('#score-page').css('display', 'block')
             
             $('#question-resolution').text('You ran out of Time!');
-            $('#correct-answer').text(`The Correct Answer is: ${quiz}[question-${i}].${c}`);
-            $('#gif-display').html(`<img src='${quiz}[question-${i}].${img}' />`); //check
+            $('#correct-answer').text(`The Correct Answer is:  ${correctAnswer}`);
+            //$('#gif-display').html(`<img src='${quiz}[question-${i}].img' />`); //fix
             
-            setTimeout (checkEnd(), 5000);
+            setTimeout (checkEnd, 5000);
 
         }
     }
 
     function checkEnd () {
         if (i < 8) {
-            start();
+            displayQuestion();
         } else {
             //Display final page!--------------------
             //clear page of score stuff -------------------------------------
@@ -146,8 +147,8 @@ $(document).ready(function() {
     }
 
     function checkCorrectness () { //finish - find if right or wrong, change text for intermediary screen
-        
-        if(answer === quiz[`question-${i}`].c) {
+        correctAnswer = quiz[`question-${i}`].c
+        if(answer === correctAnswer) {
             //if they got the answer right
             scoreScreen(1);
             
@@ -169,10 +170,13 @@ $(document).ready(function() {
     }
 
     function restart () {
+        $('#final-page').css('display', 'none');
         $('#start').css('display', 'block');
-        $('.question-box').css('display', 'none');
-        $('#question').css('display', 'none');
-        $('.time').css('display', 'none');
+        
+        // $('.question-box').css('display', 'none'); //need???
+        // $('#question').css('display', 'none');
+        // $('.time').css('display', 'none');
+
         correct = 0;
         incorrect = 0;
         timeOut = 0;
@@ -186,6 +190,9 @@ $(document).ready(function() {
     })
 
     $('#restart').on('click'), function () {
+        console.log('working')
         restart();
+        
     }
+
 });
