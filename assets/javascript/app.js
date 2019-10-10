@@ -35,24 +35,34 @@ $(document).ready(function() {
 
     //set functions
     function scoreScreen (x) {
-        if (x === 1) {
+        console.log(x);
+        if (x == 1) {
             //what happens if they got the answer right
             correct++
-            //make scorescreen------------------
-            console.log('right')
-            checkEnd();
-        } else if (x === 2) {
+            $('.question-box').css('display', 'none');
+            $('#question').css('display', 'none');
+            $('.time').css('display', 'none');
+            console.log(i)
+            setTimeout (checkEnd(), 5000);
+
+        } else if (x == 2) {
             //what happens if they got the answer wrong
             incorrect++
-            //make scoresreen------------------
-            console.log('wrong')
-            checkEnd();
-        } else if (x === 0) {
+            $('.question-box').css('display', 'none');
+            $('#question').css('display', 'none');
+            $('.time').css('display', 'none');
+            console.log(i)
+            setTimeout (checkEnd(), 5000);
+
+        } else if (x == 0) {
             //what happens if they ran out of time
             timeOut++
-            //makescorescreen-----------------
-            (console.log('time!'))
-            checkEnd();
+            $('.question-box').css('display', 'none');
+            $('#question').css('display', 'none');
+            $('.time').css('display', 'none');
+            console.log(i)
+            setTimeout (checkEnd(), 5000);
+
         }
     }
 
@@ -61,7 +71,13 @@ $(document).ready(function() {
             start();
         } else {
             //Display final page!--------------------
-            console.log('correct: ' + correct + 'wrong: ' + incorrect + 'timeouts: ' + timeOut)
+            //clear page of score stuff -------------------------------------
+        
+            $('#correct-display').text(`Correct: ${correct}`)
+            $('#incorrect-display').text(`Incorrect: ${incorrect} `)
+            $('#time-out-display').text(`Ran Out of Time: ${timeOut}`)
+            $('#restart').css('display', 'inline-block')
+
 
         }
     }
