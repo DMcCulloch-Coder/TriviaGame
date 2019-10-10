@@ -6,21 +6,21 @@ $(document).ready(function() {
     //set global variables
     let quiz = { 
         'question-1': {q: 'What do the Dursley\'s get Harry for Christmas in his first year?', 
-            a1: 'Old Socks', a2: 'Tissue', a3: '50 pence piece', a4: 'Toothpick', c: '50 pence piece', i:'../images/steam.webp'},
+            a1: 'Old Socks', a2: 'Tissue', a3: '50 pence piece', a4: 'Toothpick', c: '50 pence piece', img:'../images/steam.webp'},
         'question-2': {q: 'Which store is NOT in Diagon Alley?', 
-            a1: 'Eeylops Owl Emporium', a2: 'Dervish & Bangs', a3: 'Magical Menagerie', a4: 'Twilfitt & Tatting\'s', c: 'Dervish & Bangs', i:'../images/liar.webp'},
+            a1: 'Eeylops Owl Emporium', a2: 'Dervish & Bangs', a3: 'Magical Menagerie', a4: 'Twilfitt & Tatting\'s', c: 'Dervish & Bangs', img:'../images/liar.webp'},
         'question-3': {q: 'What spell made Herminone\'s teeth to rapidly enlarge?', 
-            a1: 'Densaugeo', a2: 'Tarantellegra', a3: 'Episkey', a4: 'Fornunculus', c: 'Densaugeo', i:'../images/worth-it.webp'},
+            a1: 'Densaugeo', a2: 'Tarantellegra', a3: 'Episkey', a4: 'Fornunculus', c: 'Densaugeo', img:'../images/worth-it.webp'},
         'question-4': {q: 'What was the first potion Snape makes first year\'s learn?', 
-            a1: 'Polyjuice Potion', a2: 'A potion to cure boils', a3: 'Polyjuice Potion', a4: 'An antidote to common poisons', c: 'A potion to cure boils', i:'../images/slap.webp'},
+            a1: 'Polyjuice Potion', a2: 'A potion to cure boils', a3: 'Polyjuice Potion', a4: 'An antidote to common poisons', c: 'A potion to cure boils', img:'../images/slap.webp'},
         'question-5': {q: 'What was Harry\'s first pet?', 
-            a1: 'Snow Owl', a2: 'Frog', a3: 'Snake', a4: 'Cat', c: 'Cat', i:'../images/cat.webp'},
+            a1: 'Snow Owl', a2: 'Frog', a3: 'Snake', a4: 'Cat', c: 'Cat', img:'../images/cat.webp'},
         'question-6': {q: 'What is Harry\'s signiture spell?', 
-            a1: 'Expelliarmus', a2: 'Avada Kedavra', a3: 'Hocus Pocus', a4: 'Accio', c: 'Expelliarmus', i:'../images/clap.webp'},
+            a1: 'Expelliarmus', a2: 'Avada Kedavra', a3: 'Hocus Pocus', a4: 'Accio', c: 'Expelliarmus', img:'../images/clap.webp'},
         'question-7': {q: 'What does Dumbledore love about Muggle magazines?', 
-            a1: 'Gardening supplements', a2: 'Comic strips', a3: 'Crossword puzzles', a4: 'Knitting patterns', c: 'Knitting patterns', i:'../images/vold.webp'},
+            a1: 'Gardening supplements', a2: 'Comic strips', a3: 'Crossword puzzles', a4: 'Knitting patterns', c: 'Knitting patterns', img:'../images/vold.webp'},
         'question-8': {q: 'What did Dobby the House Elf call Ron?', 
-            a1: 'Won-Won', a2: 'Weasel', a3: 'Wheezy', a4: 'Woozy', c: 'Wheezy', i:'../images/fire.webp'},
+            a1: 'Won-Won', a2: 'Weasel', a3: 'Wheezy', a4: 'Woozy', c: 'Wheezy', img:'../images/fire.webp'},
 
     }
     
@@ -35,32 +35,54 @@ $(document).ready(function() {
 
     //set functions
     function scoreScreen (x) {
-        console.log(x);
-        if (x == 1) {
+        
+        if (x === 1) {
             //what happens if they got the answer right
             correct++
+            //wipe screen
             $('.question-box').css('display', 'none');
             $('#question').css('display', 'none');
             $('.time').css('display', 'none');
-            console.log(i)
+            
+            //put score stuff on screen
+            $('#score-page').css('display, block')
+            
+            $('#question-resolution').text('You are Correct!');
+            $('#correct-answer').text(`The Correct Answer is: ${quiz}[question-${i}].${c}`);
+            $('#gif-display').html(`<img src='${quiz}[question-${i}].${img}' />`); //check
+
             setTimeout (checkEnd(), 5000);
 
-        } else if (x == 2) {
+        } else if (x === 2) {
             //what happens if they got the answer wrong
             incorrect++
             $('.question-box').css('display', 'none');
             $('#question').css('display', 'none');
             $('.time').css('display', 'none');
-            console.log(i)
+
+            //put score stuff on screen
+            $('#score-page').css('display, block')
+            
+            $('#question-resolution').text('You are Incorrect!');
+            $('#correct-answer').text(`The Correct Answer is: ${quiz}[question-${i}].${c}`);
+            $('#gif-display').html(`<img src='${quiz}[question-${i}].${img}' />`); //check
+            
             setTimeout (checkEnd(), 5000);
 
-        } else if (x == 0) {
+        } else if (x === 0) {
             //what happens if they ran out of time
             timeOut++
             $('.question-box').css('display', 'none');
             $('#question').css('display', 'none');
             $('.time').css('display', 'none');
-            console.log(i)
+
+            //put score stuff on screen
+            $('#score-page').css('display, block')
+            
+            $('#question-resolution').text('You ran out of Time!');
+            $('#correct-answer').text(`The Correct Answer is: ${quiz}[question-${i}].${c}`);
+            $('#gif-display').html(`<img src='${quiz}[question-${i}].${img}' />`); //check
+            
             setTimeout (checkEnd(), 5000);
 
         }
