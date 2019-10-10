@@ -67,8 +67,10 @@ $(document).ready(function() {
     function start() {
         displayQuestion();
         questionTimer();
-        $('#start').css('display', 'none')
-        $('.question-box').css('display', 'block')
+        $('#start').css('display', 'none');
+        $('.question-box').css('display', 'block');
+        $('#question').css('display', 'block');
+        $('.time').css('display', 'block');
     }
 
     //start game - call functions
