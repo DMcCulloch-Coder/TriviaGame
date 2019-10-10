@@ -64,12 +64,18 @@ $(document).ready(function() {
     }
 
     
-
+    function start() {
+        displayQuestion();
+        questionTimer();
+        $('#start').css('display', 'none')
+        $('.question-box').css('display', 'block')
+    }
 
     //start game - call functions
 
-    displayQuestion();
-    questionTimer();
+    $('#start').on('click', function () {
+        start();
+    })
 
 
 });

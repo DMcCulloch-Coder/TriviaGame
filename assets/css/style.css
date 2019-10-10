@@ -59,3 +59,9 @@ h1 {
     cursor: pointer;
     
 }
+
+.question-box {
+    display: none;
+
+    
+}
