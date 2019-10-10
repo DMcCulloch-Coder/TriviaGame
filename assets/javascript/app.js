@@ -32,6 +32,8 @@ $(document).ready(function() {
     let correct = 0;
     let incorrect = 0;
     let timeOut = 0;
+    let answer;
+    let i = 0;
 
     //set functions
     function timeWaster () {
@@ -45,6 +47,7 @@ $(document).ready(function() {
         } else {
             timeOut++
             checkCorrectness();
+            //also need to move to next screens
 
         }
 
@@ -56,16 +59,18 @@ $(document).ready(function() {
 
         timeWaster();
 
-        $('.question-box').on('click', function() {
-            console.log('working');
+        $('.question-box').on('click', function(i) {
+            answer = $(this).text();
             clearTimeout(countDown);
+            checkCorrectness();
+            //also need to move to next screen
         })
 
     };
 
 
-    function displayQuestion (i) { //setup for loop
-        
+    function displayQuestion () { //setup for loop
+        i++
         $('#question').text(quiz[`question-${i}`].q)
         $('#answer-1').text(quiz[`question-${i}`].a1)
         $('#answer-2').text(quiz[`question-${i}`].a2)
@@ -75,11 +80,17 @@ $(document).ready(function() {
     }
 
     function checkCorrectness () { //finish - find if right or wrong, change text for intermediary screen
-        alert('checking')
+        
+        if(toString(answer) === quiz[`question-${i}`].c) {
+            console.log('correct')
+        } else {
+            console.log(quiz[`question-${i}`].c)
+            console.log(answer)
+        }
     }
     
-    function start(i) {
-        displayQuestion(i);
+    function start() {
+        displayQuestion();
         questionTimer();
         $('#start').css('display', 'none');
         $('.question-box').css('display', 'block');
@@ -96,12 +107,13 @@ $(document).ready(function() {
         correct = 0;
         incorrect = 0;
         timeOut = 0;
+        i = 0;
 
     }
 
     //start game - call functions
     $('#start').on('click', function () {
-        start(1);
+        start(i);
     })
 
     $('#restart').on('click'), function () {
