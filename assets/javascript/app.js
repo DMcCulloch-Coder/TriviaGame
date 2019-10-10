@@ -6,7 +6,7 @@
 $(document).ready(function() {
 
     //set global variables
-    let quiz = { //what is the best way to show which is correct?
+    let quiz = { 
         'question-1': {q: 'What do the Dursley\'s get Harry for Christmas in his first year?', 
             a1: 'Old Socks', a2: 'Tissue', a3: '50 pence piece', a4: 'Toothpick', c: '50 pence piece', i:''},
         'question-2': {q: 'Which store is NOT in Diagon Alley?', 
@@ -53,19 +53,18 @@ $(document).ready(function() {
     };
 
 
-    function displayQuestion () { //setup for loop
-        //display time-clock
-        $('#question').text(quiz['question-2'].q)
-        $('#answer-1').text(quiz['question-2'].a1)
-        $('#answer-2').text(quiz['question-2'].a2)
-        $('#answer-3').text(quiz['question-2'].a3)
-        $('#answer-4').text(quiz['question-2'].a4)
-
+    function displayQuestion (i) { //setup for loop
+        
+        $('#question').text(quiz[`question-${i}`].q)
+        $('#answer-1').text(quiz[`question-${i}`].a1)
+        $('#answer-2').text(quiz[`question-${i}`].a2)
+        $('#answer-3').text(quiz[`question-${i}`].a3)
+        $('#answer-4').text(quiz[`question-${i}`].a4)
     }
 
     
-    function start() {
-        displayQuestion();
+    function start(i) {
+        displayQuestion(i);
         questionTimer();
         $('#start').css('display', 'none');
         $('.question-box').css('display', 'block');
@@ -74,9 +73,8 @@ $(document).ready(function() {
     }
 
     //start game - call functions
-
     $('#start').on('click', function () {
-        start();
+        start(1);
     })
 
 
