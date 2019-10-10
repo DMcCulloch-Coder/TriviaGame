@@ -1,7 +1,6 @@
 // To Do:
 //
-// bug - restart button won't work.
-// bug - gifs aren't being referenced properly
+// bug - fix final page after reset.
 
 
 $(document).ready(function() {
@@ -15,7 +14,7 @@ $(document).ready(function() {
         'question-3': {q: 'What spell made Herminone\'s teeth to rapidly enlarge?', 
             a1: 'Densaugeo', a2: 'Tarantellegra', a3: 'Episkey', a4: 'Fornunculus', c: 'Densaugeo', img:'assets/images/worth-it.webp'},
         'question-4': {q: 'What was the first potion Snape makes first year\'s learn?', 
-            a1: 'Polyjuice Potion', a2: 'A potion to cure boils', a3: 'Polyjuice Potion', a4: 'An antidote to common poisons', c: 'A potion to cure boils', img:'assets/images/slap.webp'},
+            a1: 'Confusing Concoction', a2: 'A potion to cure boils', a3: 'Polyjuice Potion', a4: 'An antidote to common poisons', c: 'A potion to cure boils', img:'assets/images/slap.webp'},
         'question-5': {q: 'What was Harry\'s first pet?', 
             a1: 'Snow Owl', a2: 'Frog', a3: 'Snake', a4: 'Cat', c: 'Cat', img:'assets/images/cat.webp'},
         'question-6': {q: 'What is Harry\'s signiture spell?', 
@@ -192,7 +191,7 @@ $(document).ready(function() {
 
     function restart () {
         $('#final-page').css('display', 'none');
-        $('#start').css('display', 'block');
+        $('#start').css('display', 'inline-block');
 
         correct = 0;
         incorrect = 0;
@@ -206,10 +205,10 @@ $(document).ready(function() {
         start();
     })
 
-    $('#restart').on('click'), function () {
+    $('#restart').on('click', function () {
         console.log('working - reset')
         restart();
         
-    }
+    })
 
 });
