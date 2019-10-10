@@ -1,7 +1,5 @@
 // To Do:
-// ending screen "title / ending statment / correct, incorrect, unasnwered / start over button"
-// find a way to suffle the answers (make the answers into an array?  how to find correct if = to correct (copy of right answer!!!))
-// add video clips to the objects!  // also make the c === answer text
+
 
 $(document).ready(function() {
 
@@ -36,6 +34,38 @@ $(document).ready(function() {
     let i = 0;
 
     //set functions
+    function scoreScreen (x) {
+        if (x === 1) {
+            //what happens if they got the answer right
+            correct++
+            //make scorescreen------------------
+            console.log('right')
+            checkEnd();
+        } else if (x === 2) {
+            //what happens if they got the answer wrong
+            incorrect++
+            //make scoresreen------------------
+            console.log('wrong')
+            checkEnd();
+        } else if (x === 0) {
+            //what happens if they ran out of time
+            timeOut++
+            //makescorescreen-----------------
+            (console.log('time!'))
+            checkEnd();
+        }
+    }
+
+    function checkEnd () {
+        if (i < 8) {
+            start();
+        } else {
+            //Display final page!--------------------
+            console.log('correct: ' + correct + 'wrong: ' + incorrect + 'timeouts: ' + timeOut)
+
+        }
+    }
+
     function timeWaster () {
         time--
 
@@ -45,9 +75,7 @@ $(document).ready(function() {
             countDown = setTimeout(timeWaster,1000)
 
         } else {
-            timeOut++
-            checkCorrectness();
-            //also need to move to next screens
+            scoreScreen(0);
 
         }
 
@@ -60,10 +88,10 @@ $(document).ready(function() {
         timeWaster();
 
         $('.question-box').on('click', function(i) {
-            answer = $.trim($(this).text()); //got $.trim from stack overflow!!!  It was driving me crazy
+            answer = $.trim($(this).text());
             clearTimeout(countDown);
             checkCorrectness();
-            //also need to move to next screen
+
         })
 
     };
@@ -82,10 +110,13 @@ $(document).ready(function() {
     function checkCorrectness () { //finish - find if right or wrong, change text for intermediary screen
         
         if(answer === quiz[`question-${i}`].c) {
-            console.log('correct')
+            //if they got the answer right
+            scoreScreen(1);
+            
         } else {
-            console.log(quiz[`question-${i}`].c)
-            console.log(answer)
+            //if they got the answer wrong
+            scoreScreen(2);
+
         }
     }
     
@@ -113,7 +144,7 @@ $(document).ready(function() {
 
     //start game - call functions
     $('#start').on('click', function () {
-        start(i);
+        start();
     })
 
     $('#restart').on('click'), function () {
