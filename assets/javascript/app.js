@@ -165,6 +165,7 @@ $(document).ready(function() {
     }
     
     function start() {
+        time = 30;
         displayQuestion();
         questionTimer();
         $('#start').css('display', 'none');
@@ -177,10 +178,6 @@ $(document).ready(function() {
     function restart () {
         $('#final-page').css('display', 'none');
         $('#start').css('display', 'block');
-        
-        // $('.question-box').css('display', 'none'); //need???
-        // $('#question').css('display', 'none');
-        // $('.time').css('display', 'none');
 
         correct = 0;
         incorrect = 0;
