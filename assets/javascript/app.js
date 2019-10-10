@@ -138,6 +138,9 @@ $(document).ready(function() {
 
     function displayQuestion () {
         i++
+        //render correct answer at this point incase of time out
+        correctAnswer = quiz[`question-${i}`].c
+        
         $('#question').text(quiz[`question-${i}`].q)
         $('#answer-1').text(quiz[`question-${i}`].a1)
         $('#answer-2').text(quiz[`question-${i}`].a2)
@@ -147,7 +150,7 @@ $(document).ready(function() {
     }
 
     function checkCorrectness () { //finish - find if right or wrong, change text for intermediary screen
-        correctAnswer = quiz[`question-${i}`].c
+        
         if(answer === correctAnswer) {
             //if they got the answer right
             scoreScreen(1);
