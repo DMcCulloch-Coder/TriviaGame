@@ -4,26 +4,27 @@
 // fix - capitals accross answers and questions
 // fix - margins, so box is same height throughout quiz one different screen sizes
 // write Read me
+// make special animation if you get them all correct!!!
 
 
 $(document).ready(function() {
 
     //set global variables
     let quiz = { 
-        'question-1': {q: 'What do the Dursley\'s get Harry for Christmas in his first year?', 
-            a1: 'Old Socks', a2: 'Tissue', a3: '50 pence piece', a4: 'Toothpick', c: '50 pence piece', img:'assets/images/steam.webp'},
+        'question-1': {q: 'What did the Dursley\'s get Harry for Christmas in his first year?', 
+            a1: 'Old Socks', a2: 'Tissue', a3: '50 Pence Piece', a4: 'Toothpick', c: '50 Pence Piece', img:'assets/images/steam.webp'},
         'question-2': {q: 'Which store is NOT in Diagon Alley?', 
             a1: 'Eeylops Owl Emporium', a2: 'Dervish & Bangs', a3: 'Magical Menagerie', a4: 'Twilfitt & Tatting\'s', c: 'Dervish & Bangs', img:'assets/images/liar.webp'},
-        'question-3': {q: 'What spell made Herminone\'s teeth to rapidly enlarge?', 
+        'question-3': {q: 'What spell caused Herminone\'s teeth to rapidly enlarge?', 
             a1: 'Densaugeo', a2: 'Tarantellegra', a3: 'Episkey', a4: 'Fornunculus', c: 'Densaugeo', img:'assets/images/worth-it.webp'},
-        'question-4': {q: 'What was the first potion Snape makes first year\'s learn?', 
-            a1: 'Confusing Concoction', a2: 'A potion to cure boils', a3: 'Polyjuice Potion', a4: 'An antidote to common poisons', c: 'A potion to cure boils', img:'assets/images/slap.webp'},
+        'question-4': {q: 'What was the first potion Snape made the first year\'s learn?', 
+            a1: 'Confusing Concoction', a2: 'A Potion to Cure Boils', a3: 'Polyjuice Potion', a4: 'An Antidote to Common Poisons', c: 'A Potion to Cure Boils', img:'assets/images/slap.webp'},
         'question-5': {q: 'What was Harry\'s first pet?', 
             a1: 'Snow Owl', a2: 'Frog', a3: 'Snake', a4: 'Cat', c: 'Cat', img:'assets/images/cat.webp'},
         'question-6': {q: 'What is Harry\'s signiture spell?', 
             a1: 'Expelliarmus', a2: 'Avada Kedavra', a3: 'Hocus Pocus', a4: 'Accio', c: 'Expelliarmus', img:'assets/images/clap.webp'},
         'question-7': {q: 'What does Dumbledore love about Muggle magazines?', 
-            a1: 'Gardening supplements', a2: 'Comic strips', a3: 'Crossword puzzles', a4: 'Knitting patterns', c: 'Knitting patterns', img:'assets/images/vold.webp'},
+            a1: 'Gardening Supplements', a2: 'Comic Strips', a3: 'Crossword Puzzles', a4: 'Knitting Patterns', c: 'Knitting Patterns', img:'assets/images/vold.webp'},
         'question-8': {q: 'What did Dobby the House Elf call Ron?', 
             a1: 'Won-Won', a2: 'Weasel', a3: 'Wheezy', a4: 'Woozy', c: 'Wheezy', img:'assets/images/fire.webp'},
 
