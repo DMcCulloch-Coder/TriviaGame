@@ -1,8 +1,5 @@
 // To Do:
 //
-// bug - fix final page after reset.
-// fix - capitals accross answers and questions
-// fix - margins, so box is same height throughout quiz one different screen sizes
 // write Read me
 // make special animation if you get them all correct!!!
 
@@ -49,9 +46,7 @@ $(document).ready(function() {
             correct++
         
             //wipe screen
-            $('.question-box').css('display', 'none');
-            $('#question').css('display', 'none');
-            $('.time').css('display', 'none');
+            $('.question-box, #question, .time').css('display', 'none');
             
             //put score stuff on screen
             $('#score-page').css('display', 'block')
@@ -63,14 +58,11 @@ $(document).ready(function() {
             
             setTimeout(checkEnd, 4000);
 
-            // <img src='assets/images/clap.webp' />
-
         } else if (x === 2) {
             //what happens if they got the answer wrong
             incorrect++
-            $('.question-box').css('display', 'none');
-            $('#question').css('display', 'none');
-            $('.time').css('display', 'none');
+
+            $('.question-box, #question, .time').css('display', 'none');
 
             //put score stuff on screen
             $('#score-page').css('display', 'block')
@@ -85,9 +77,8 @@ $(document).ready(function() {
         } else if (x === 0) {
             //what happens if they ran out of time
             timeOut++
-            $('.question-box').css('display', 'none');
-            $('#question').css('display', 'none');
-            $('.time').css('display', 'none');
+
+            $('.question-box, #question, .time').css('display', 'none');
 
             //put score stuff on screen
             $('#score-page').css('display', 'block')
@@ -111,15 +102,12 @@ $(document).ready(function() {
             //Display final page!--------------------
             $('#score-page').css('display', 'none');
 
-            $('#correct-display').css('display', 'block');
-            $('#incorrect-display').css('display', 'block');
-            $('#time-out-display').css('display', 'block');
+            $('#correct-display, #incorrect-display, #time-out-display').css('display', 'block');
             $('#restart').css('display', 'inline-block');
 
             $('#correct-display').text(`Correct: ${correct}`);
             $('#incorrect-display').text(`Incorrect: ${incorrect} `);
             $('#time-out-display').text(`Ran Out of Time: ${timeOut}`);
-            $('#restart').css('display', 'inline-block');
             
         }
     }
@@ -150,7 +138,7 @@ $(document).ready(function() {
                 answer = $.trim($(this).text());
                 questionUnclicked = false
                 clearTimeout(countDown);
-                checkCorrectness();//this is happening muiltiple times
+                checkCorrectness();
                 
             }
 
@@ -193,17 +181,12 @@ $(document).ready(function() {
         displayQuestion();
         questionTimer();
         $('#start').css('display', 'none');
-        $('.question-box').css('display', 'block');
-        $('#question').css('display', 'block');
-        $('.time').css('display', 'block');
+        $('.question-box, #question, .time').css('display', 'block');
 
     }
 
     function restart () {
-        $('#correct-display').css('display', 'none');
-        $('#incorrect-display').css('display', 'none');
-        $('#time-out-display').css('display', 'none');
-        $('#restart').css('display', 'none');
+        $('#correct-display, #incorrect-display, #time-out-display, #restart').css('display', 'none');
 
         $('#start').css('display', 'inline-block');
 
