@@ -99,7 +99,7 @@ $(document).ready(function() {
             start();
             
         } else {
-            //Display final page!--------------------
+            //Display final page
             $('#score-page').css('display', 'none');
 
             $('#correct-display, #incorrect-display, #time-out-display').css('display', 'block');
@@ -137,6 +137,7 @@ $(document).ready(function() {
             if (questionUnclicked){
                 answer = $.trim($(this).text());
                 questionUnclicked = false
+                
                 clearTimeout(countDown);
                 checkCorrectness();
                 
@@ -178,8 +179,10 @@ $(document).ready(function() {
     function start() {
         time = 20;
         questionUnclicked = true;
+
         displayQuestion();
         questionTimer();
+
         $('#start').css('display', 'none');
         $('.question-box, #question, .time').css('display', 'block');
 
@@ -200,6 +203,7 @@ $(document).ready(function() {
     //start game - call functions
     $('#start').on('click', function () {
         start();
+
     })
 
     $('#restart').on('click', function () {
