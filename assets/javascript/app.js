@@ -1,9 +1,3 @@
-// To Do:
-//
-// write Read me
-// make special animation if you get them all correct!!!
-
-
 $(document).ready(function() {
 
     //set global variables
